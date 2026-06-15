@@ -1,0 +1,18 @@
+<svg width="480" height="280" viewBox="0 0 480 280" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">RawMina</title>
+  <desc id="desc">Logo RawMina raw vegan cakes cu pată roz și căpșună</desc>
+  <path d="M98 84C129 60 358 67 395 85C420 97 414 208 407 223C375 233 130 234 79 224C70 192 71 105 98 84Z" fill="#EBB6C0"/>
+  <path d="M107 100C98 109 92 129 90 148" stroke="#F8E6EA" stroke-width="8" stroke-linecap="round"/>
+  <path d="M93 214C142 226 343 224 398 217" stroke="#F8E6EA" stroke-width="6" stroke-linecap="round"/>
+  <text x="88" y="152" fill="#8A3A4A" font-family="Caveat, Comic Sans MS, cursive" font-size="94" font-weight="700" letter-spacing="-3">raw</text>
+  <text x="73" y="220" fill="#8A3A4A" font-family="Caveat, Comic Sans MS, cursive" font-size="96" font-weight="700" letter-spacing="-3">mina</text>
+  <path d="M87 70C126 36 168 24 218 25C268 26 320 37 367 69" stroke="#8A3A4A" stroke-width="8" stroke-linecap="round" stroke-dasharray="0.5 21"/>
+  <text x="98" y="58" fill="#8A3A4A" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="8" transform="rotate(-17 98 58)">RAW VEGAN CAKES</text>
+  <path d="M380 44C396 37 419 47 423 66C427 87 412 103 393 98C374 93 363 75 367 60C368 53 373 48 380 44Z" fill="#D7384F"/>
+  <path d="M397 42C397 28 405 19 417 14C416 28 410 38 397 45Z" fill="#5D8F54"/>
+  <path d="M407 46C413 35 424 31 436 32C431 44 422 49 409 50Z" fill="#6EA561"/>
+  <circle cx="384" cy="59" r="3" fill="#F8E6EA"/>
+  <circle cx="402" cy="62" r="3" fill="#F8E6EA"/>
+  <circle cx="392" cy="78" r="3" fill="#F8E6EA"/>
+  <circle cx="411" cy="82" r="3" fill="#F8E6EA"/>
+</svg>
