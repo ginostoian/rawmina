@@ -9,12 +9,16 @@ import { CATEGORIES, productsByCategory, type Category } from "@/lib/products";
 const categoryOptions: Array<Category | "toate"> = [
   "toate",
   "torturi",
+  "torturi-decor-copii",
   "prajituri",
-  "sezoniere",
-  "raw-bars",
-  "bomboane",
-  "creme",
+  "bomboane-raw",
+  "creme-tartinabile",
+  "inghetata",
+  "biscuiti-si-briose",
   "specialitati",
+  "platouri-asortate",
+  "de-sezon",
+  "de-oferit",
 ];
 
 function isCategory(value: string | null): value is Category {

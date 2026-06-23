@@ -1,3 +1,5 @@
+"use client";
+
 import { Facebook, Instagram, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -5,11 +7,13 @@ import { siteConfig } from "@/lib/config";
 import { CATEGORIES } from "@/lib/products";
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-brand-wine-deep text-cream">
       <div className="container-content grid gap-10 py-14 md:grid-cols-[1.2fr_0.8fr_0.8fr_1fr]">
         <div>
-          <Image src="/brand/rawmina-logo.svg" alt="RawMina raw vegan cakes" width={150} height={88} className="rounded-xl bg-cream p-2" />
+          <Image src="/brand/rawmina-logo.jpeg" alt="Logo RawMina Raw Vegan Cakes" width={150} height={109} className="rounded-xl bg-cream p-2" />
           <p className="mt-5 max-w-sm text-sm leading-6 text-brand-pink-soft">
             Torturi și prăjituri raw vegane, făcute manual, fără zahăr și fără compromis la gust.
           </p>
@@ -58,6 +62,16 @@ export function Footer() {
               </a>
             </div>
           </div>
+        </div>
+      </div>
+      <div className="border-t border-cream/15">
+        <div className="container-content flex flex-col gap-2 py-5 text-sm text-brand-pink-soft sm:flex-row sm:items-center sm:justify-between">
+          <p>
+            Copyright © <span suppressHydrationWarning>{currentYear}</span> RawMina. All rights reserved.
+          </p>
+          <a href="https://madebybloc.com" className="font-bold text-brand-pink transition hover:text-cream">
+            Made by BLOC
+          </a>
         </div>
       </div>
     </footer>

@@ -55,11 +55,12 @@ export function OrderDialog({ product, children }: OrderDialogProps) {
     },
   });
 
-  const productLabel = product ? `${product.name} · ${product.price} lei${product.priceUnit ?? ""}` : "Comandă personalizată";
+  const productPrice = product?.price ? `${product.price} lei${product.priceUnit ?? ""}` : "Preț la cerere";
+  const productLabel = product ? `${product.name} · ${productPrice}` : "Comandă personalizată";
 
   const whatsappHref = useMemo(() => {
     const text = product
-      ? `Bună! Aș vrea să comand ${product.name} (${product.price} lei${product.priceUnit ?? ""}).`
+      ? `Bună! Aș vrea să comand ${product.name} (${productPrice}).`
       : "Bună! Aș vrea să plasez o comandă RawMina.";
 
     return `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(text)}`;

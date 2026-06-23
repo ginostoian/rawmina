@@ -2,7 +2,6 @@ import { ArrowRight, Sparkles } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/lib/config";
 
 export function Hero() {
   return (
@@ -16,11 +15,8 @@ export function Hero() {
           <h1 className="font-display text-[clamp(2.5rem,6vw,4rem)] font-semibold leading-[1.05] text-brand-wine-deep text-balance">
             Deserturi raw vegane făcute <span className="hand-underline">fără zahăr</span> și pline de bucurie.
           </h1>
-          <p className="mt-5 inline-block -rotate-2 font-hand text-3xl font-semibold text-brand-wine">
-            {siteConfig.tagline}
-          </p>
           <p className="mt-6 text-lg leading-8 text-[#6f5f63]">
-            Torturi și prăjituri raw, făcute manual, cu fructe, nuci și îndulcitori naturali. Pentru zile în care vrei ceva frumos, bun și atent cu tine.
+            Am eliminat zahărul rafinat, lactatele, coloranții și aditivii artificiali pentru a-ți oferi ceva mai mult decât o prăjitură: o experiență vie, plină de nutrienți și energie curată. Fiecare felie este o îmbrățișare dulce și o promisiune că poți alege ce e mai bun pentru tine și familia ta, exact așa cum îți dorești.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg">
@@ -50,7 +46,7 @@ export function Hero() {
                 className="object-cover"
               />
             </div>
-            <div className="absolute bottom-4 left-4 hidden rounded-2xl bg-surface/92 p-4 backdrop-blur sm:block">
+            <div className="absolute -bottom-4 left-4 hidden rounded-2xl bg-surface/92 p-4 backdrop-blur sm:block">
               <p className="text-xs font-bold uppercase tracking-[0.04em] text-brand-wine">Fără zahăr rafinat</p>
               <p className="mt-1 text-sm font-semibold text-brand-wine-deep">doar fructe, nuci și îndulcitori naturali</p>
             </div>

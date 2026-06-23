@@ -44,7 +44,7 @@ export function Navbar() {
     >
       <div className="container-content flex h-20 items-center justify-between gap-5">
         <Link href="/" className="flex items-center gap-3" aria-label="RawMina acasă">
-          <Image src="/brand/rawmina-logo.svg" alt="RawMina raw vegan cakes" width={118} height={69} priority className="h-auto w-[118px]" />
+          <Image src="/brand/rawmina-logo.jpeg" alt="Logo RawMina Raw Vegan Cakes" width={100} height={73} priority className="h-auto w-[100px]" />
         </Link>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Navigație principală">
