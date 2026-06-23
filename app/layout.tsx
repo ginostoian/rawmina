@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Caveat, Fraunces, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { CartProvider } from "@/components/cart/cart-provider";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
 
@@ -49,9 +50,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="ro" className={`${fraunces.variable} ${jakarta.variable} ${caveat.variable}`}>
       <body>
-        <Navbar />
-        {children}
-        <Footer />
+        <CartProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </CartProvider>
       </body>
     </html>
   );

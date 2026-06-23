@@ -1,10 +1,12 @@
 "use client";
 
+import { ArrowUpRight, Minus, Plus } from "lucide-react";
 import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
+import { useState } from "react";
+import { useCart } from "@/components/cart/cart-provider";
 import { Button } from "@/components/ui/button";
-import { OrderDialog } from "@/components/order-dialog";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { formatProductPrice, formatQuantity } from "@/lib/cart";
 import type { Product } from "@/lib/products";
 import { cn } from "@/lib/utils";
 
@@ -15,7 +17,22 @@ interface ProductCardProps {
 }
 
 export function ProductCard({ product, compact, priority }: ProductCardProps) {
-  const price = `${product.price} lei${product.priceUnit ?? ""}`;
+  const { addItem } = useCart();
+  const [quantity, setQuantity] = useState(1);
+  const [added, setAdded] = useState(false);
+  const quantityStep = product.salesMode === "weight" ? 0.5 : 1;
+  const productPrice = formatProductPrice(product);
+  const unitNote = product.salesMode === "weight" ? "Alege gramajul pentru tort." : `Aproximativ ${product.unitWeightGrams ?? 150} g / bucată.`;
+
+  function changeQuantity(nextQuantity: number) {
+    setQuantity(Math.max(1, Number(nextQuantity.toFixed(2))));
+  }
+
+  function addToCart(amount: number) {
+    addItem(product, amount);
+    setAdded(true);
+    window.setTimeout(() => setAdded(false), 1600);
+  }
 
   return (
     <article className="group flex h-full flex-col rounded-xl border border-border bg-surface p-3 transition duration-200 ease-out hover:-translate-y-1 hover:border-brand-pink motion-reduce:hover:translate-y-0">
@@ -34,10 +51,7 @@ export function ProductCard({ product, compact, priority }: ProductCardProps) {
               />
               <div className="absolute left-3 top-3 flex flex-wrap gap-2">
                 {product.badges?.slice(0, 2).map((badge) => (
-                  <span
-                    key={badge}
-                    className="rounded-full bg-brand-pink-soft px-3 py-1 text-[11px] font-bold uppercase tracking-[0.04em] text-brand-wine"
-                  >
+                  <span key={badge} className="rounded-full bg-brand-pink-soft px-3 py-1 text-[11px] font-bold uppercase tracking-[0.04em] text-brand-wine">
                     {badge}
                   </span>
                 ))}
@@ -76,11 +90,25 @@ export function ProductCard({ product, compact, priority }: ProductCardProps) {
                 <p className="text-sm font-bold uppercase tracking-[0.04em] text-brand-wine">Conține</p>
                 <p className="mt-2 leading-7 text-[#6f5f63]">{product.ingredients}</p>
               </div>
-              <div className="mt-6 flex flex-wrap items-center justify-between gap-4">
-                <p className="font-display text-2xl font-semibold text-brand-strawberry">{price}</p>
-                <OrderDialog product={product}>
-                  <Button>Comandă produsul</Button>
-                </OrderDialog>
+              <div className="mt-6 rounded-xl border border-border p-4">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <p className="font-display text-2xl font-semibold text-brand-strawberry">{productPrice}</p>
+                    <p className="mt-1 text-xs leading-5 text-[#6f5f63]">{unitNote}</p>
+                  </div>
+                  <div className="flex items-center rounded-full border border-border bg-surface">
+                    <button type="button" onClick={() => changeQuantity(quantity - quantityStep)} className="p-2 text-brand-wine hover:bg-brand-pink-soft" aria-label="Scade cantitatea">
+                      <Minus className="h-4 w-4" aria-hidden="true" />
+                    </button>
+                    <span className="min-w-16 px-1 text-center text-sm font-bold text-brand-wine-deep">{formatQuantity(quantity, product.salesMode)}</span>
+                    <button type="button" onClick={() => changeQuantity(quantity + quantityStep)} className="p-2 text-brand-wine hover:bg-brand-pink-soft" aria-label="Crește cantitatea">
+                      <Plus className="h-4 w-4" aria-hidden="true" />
+                    </button>
+                  </div>
+                </div>
+                <Button className="mt-4 w-full" onClick={() => addToCart(quantity)}>
+                  Adaugă în coș · {product.salesMode === "weight" ? `${formatQuantity(quantity, product.salesMode)} × 170 lei` : `${formatQuantity(quantity, product.salesMode)} × ${formatProductPrice(product)}`}
+                </Button>
               </div>
             </div>
           </div>
@@ -88,12 +116,13 @@ export function ProductCard({ product, compact, priority }: ProductCardProps) {
       </Dialog>
 
       <div className="mt-auto flex items-center justify-between gap-3 border-t border-border px-2 pt-3">
-        <p className="font-bold text-brand-strawberry">{price}</p>
-        <OrderDialog product={product}>
-          <Button size="sm" variant="outline" className="group-hover:border-brand-strawberry group-hover:bg-brand-strawberry group-hover:text-white">
-            Comandă
-          </Button>
-        </OrderDialog>
+        <div>
+          <p className="font-bold text-brand-strawberry">{productPrice}</p>
+          {product.salesMode === "piece" ? <p className="text-[11px] font-semibold text-[#6f5f63]">aprox. {product.unitWeightGrams ?? 150} g / buc.</p> : null}
+        </div>
+        <Button size="sm" variant={added ? "soft" : "outline"} onClick={() => addToCart(1)}>
+          {added ? "Adăugat" : "Adaugă"}
+        </Button>
       </div>
     </article>
   );

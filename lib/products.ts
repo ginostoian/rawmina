@@ -12,6 +12,7 @@ export type Category =
   | "de-oferit";
 
 export type Season = "vara" | "paste" | "craciun";
+export type SalesMode = "weight" | "piece";
 
 export interface Product {
   slug: string;
@@ -19,6 +20,8 @@ export interface Product {
   category: Category;
   price: number;
   priceUnit?: string;
+  salesMode: SalesMode;
+  unitWeightGrams?: number;
   shortDescription: string;
   ingredients: string;
   image: string;
@@ -103,7 +106,7 @@ export const CATEGORIES: Record<
 
 const rawVeganBadges = ["raw vegan", "fără zahăr rafinat"];
 
-const menuProducts: Array<Omit<Product, "price" | "priceUnit">> = [
+const menuProducts: Array<Omit<Product, "price" | "priceUnit" | "salesMode" | "unitWeightGrams">> = [
   {
     slug: "snickers",
     name: "Snickers",
@@ -389,7 +392,9 @@ const menuProducts: Array<Omit<Product, "price" | "priceUnit">> = [
 export const products: Product[] = menuProducts.map((product) => ({
   ...product,
   price: 170,
-  priceUnit: " / kg",
+  salesMode: product.category === "torturi" || product.category === "torturi-decor-copii" ? "weight" : "piece",
+  priceUnit: product.category === "torturi" || product.category === "torturi-decor-copii" ? " / kg" : " / buc",
+  unitWeightGrams: product.category === "torturi" || product.category === "torturi-decor-copii" ? undefined : 150,
 }));
 
 export const featuredProducts = products.filter((product) => product.featured);

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Facebook, Instagram, Mail, MapPin, Phone } from "lucide-react";
-import { OrderDialog } from "@/components/order-dialog";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
 
@@ -22,9 +22,9 @@ export default function ContactPage() {
           <p className="mt-6 text-lg leading-8 text-[#6f5f63]">
             Datele de mai jos sunt placeholder până primim informațiile finale. Structura este pregătită pentru telefon, WhatsApp, email și social media.
           </p>
-          <OrderDialog>
-            <Button className="mt-8" size="lg">Comandă acum</Button>
-          </OrderDialog>
+          <Button asChild className="mt-8" size="lg">
+            <Link href="/comanda">Vezi coșul și comandă</Link>
+          </Button>
         </div>
 
         <div className="rounded-2xl border border-border bg-surface p-6 md:p-8">

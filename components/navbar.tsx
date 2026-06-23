@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { OrderDialog } from "@/components/order-dialog";
+import { CartDrawer } from "@/components/cart/cart-drawer";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -66,33 +66,34 @@ export function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <OrderDialog>
-            <Button>Comandă</Button>
-          </OrderDialog>
+          <CartDrawer />
         </div>
 
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button variant="soft" size="icon" className="lg:hidden" aria-label="Deschide meniul">
-              <Menu className="h-5 w-5" aria-hidden="true" />
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="top-4 max-w-[calc(100%-2rem)] translate-y-0 rounded-2xl sm:left-auto sm:right-4 sm:translate-x-0">
-            <DialogHeader>
-              <DialogTitle>Meniu</DialogTitle>
-            </DialogHeader>
-            <div className="grid gap-2">
-              {navItems.map((item) => (
-                <Link key={item.href} href={item.href} className="rounded-xl px-3 py-3 font-bold text-brand-wine-deep hover:bg-brand-pink-soft">
-                  {item.label}
-                </Link>
-              ))}
-              <OrderDialog>
-                <Button className="mt-2 w-full">Comandă</Button>
-              </OrderDialog>
-            </div>
-          </DialogContent>
-        </Dialog>
+        <div className="flex items-center gap-2 lg:hidden">
+          <CartDrawer compact />
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="soft" size="icon" aria-label="Deschide meniul">
+                <Menu className="h-5 w-5" aria-hidden="true" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="top-4 max-w-[calc(100%-2rem)] translate-y-0 rounded-2xl sm:left-auto sm:right-4 sm:translate-x-0">
+              <DialogHeader>
+                <DialogTitle>Meniu</DialogTitle>
+              </DialogHeader>
+              <div className="grid gap-2">
+                {navItems.map((item) => (
+                  <Link key={item.href} href={item.href} className="rounded-xl px-3 py-3 font-bold text-brand-wine-deep hover:bg-brand-pink-soft">
+                    {item.label}
+                  </Link>
+                ))}
+                <Button asChild className="mt-2 w-full">
+                  <Link href="/comanda">Vezi coșul</Link>
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
+        </div>
       </div>
     </header>
   );

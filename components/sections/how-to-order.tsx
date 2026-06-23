@@ -1,5 +1,5 @@
 import { CalendarCheck, MessageCircle, PackageCheck } from "lucide-react";
-import { OrderDialog } from "@/components/order-dialog";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const steps = [
@@ -27,7 +27,7 @@ export function HowToOrder() {
         <div className="mb-10 max-w-2xl">
           <p className="text-sm font-bold uppercase tracking-[0.04em] text-brand-wine">Cum comanzi</p>
           <h2 className="mt-3 font-display text-[clamp(1.75rem,3.5vw,2.5rem)] font-semibold leading-tight text-brand-wine-deep">
-            Comandă simplu, fără coș și fără plată online.
+            Adaugi produsele în coș, apoi confirmăm comanda direct cu tine.
           </h2>
         </div>
 
@@ -50,9 +50,9 @@ export function HowToOrder() {
         </div>
 
         <div className="mt-9">
-          <OrderDialog>
-            <Button size="lg">Începe o comandă</Button>
-          </OrderDialog>
+          <Button asChild size="lg">
+            <Link href="/produse">Alege produsele</Link>
+          </Button>
         </div>
       </div>
     </section>
