@@ -12,6 +12,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { saveCheckoutOrder } from "@/lib/admin-local";
 import { formatCurrency, formatQuantity, getCartItemTotal } from "@/lib/cart";
 
 const checkoutSchema = z.object({
@@ -48,6 +49,7 @@ export function CheckoutForm() {
       return;
     }
 
+    saveCheckoutOrder(values, items, total);
     clearCart();
     setStatus("success");
   }

@@ -4,6 +4,7 @@ import "./globals.css";
 import { CartProvider } from "@/components/cart/cart-provider";
 import { Footer } from "@/components/footer";
 import { Navbar } from "@/components/navbar";
+import { siteConfig } from "@/lib/config";
 
 const fraunces = Fraunces({
   subsets: ["latin", "latin-ext"],
@@ -25,6 +26,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: "RawMina | Cofetărie raw vegană fără zahăr",
     template: "%s | RawMina",
@@ -48,7 +50,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ro" className={`${fraunces.variable} ${jakarta.variable} ${caveat.variable}`}>
+    <html lang="ro" data-scroll-behavior="smooth" className={`${fraunces.variable} ${jakarta.variable} ${caveat.variable}`}>
       <body>
         <CartProvider>
           <Navbar />

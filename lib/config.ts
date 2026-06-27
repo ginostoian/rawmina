@@ -1,5 +1,6 @@
 export const siteConfig = {
   name: "RawMina",
+  url: "https://rawmina.ro",
   tagline: "Zâmbește, e fără zahăr",
   descriptor: "Cofetărie raw vegană",
   phone: "+40740000000",

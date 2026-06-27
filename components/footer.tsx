@@ -3,11 +3,17 @@
 import { Facebook, Instagram, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/config";
 import { CATEGORIES } from "@/lib/products";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const pathname = usePathname();
+
+  if (pathname.startsWith("/admin")) {
+    return null;
+  }
 
   return (
     <footer className="bg-brand-wine-deep text-cream">
@@ -27,6 +33,7 @@ export function Footer() {
           <ul className="mt-4 grid gap-3 text-sm">
             <li><Link href="/produse" className="hover:text-brand-pink">Produse</Link></li>
             <li><Link href="/despre" className="hover:text-brand-pink">Despre</Link></li>
+            <li><Link href="/blog" className="hover:text-brand-pink">Blog</Link></li>
             <li><Link href="/comanda" className="hover:text-brand-pink">Cum comanzi</Link></li>
             <li><Link href="/contact" className="hover:text-brand-pink">Contact</Link></li>
           </ul>

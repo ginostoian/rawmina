@@ -1,0 +1,102 @@
+[
+  {
+    "name": "tort Kinder",
+    "slug": "tort-kinder",
+    "image": "/products/recreated/tort-kinder.jpg"
+  },
+  {
+    "name": "tarta Banoffee",
+    "slug": "tarta-banoffee",
+    "image": "/products/recreated/tarta-banoffee.jpg"
+  },
+  {
+    "name": "menta si ciocolata",
+    "slug": "menta-si-ciocolata",
+    "image": "/products/recreated/menta-si-ciocolata.jpg"
+  },
+  {
+    "name": "fistic si zmeura",
+    "slug": "fistic-si-zmeura",
+    "image": "/products/recreated/fistic-si-zmeura.jpg"
+  },
+  {
+    "name": "amandina RawVegan",
+    "slug": "amandina-rawvegan",
+    "image": "/products/recreated/amandina-rawvegan.jpg"
+  },
+  {
+    "name": "diplomat RawVegan",
+    "slug": "diplomat-rawvegan",
+    "image": "/products/recreated/diplomat-rawvegan.jpg"
+  },
+  {
+    "name": "tort cioco-fistic",
+    "slug": "tort-cioco-fistic",
+    "image": "/products/recreated/tort-cioco-fistic.jpg"
+  },
+  {
+    "name": "cioco si jeleu fructe",
+    "slug": "cioco-si-jeleu-fructe",
+    "image": "/products/recreated/cioco-si-jeleu-fructe.jpg"
+  },
+  {
+    "name": "snickers",
+    "slug": "snickers",
+    "image": "/products/recreated/snickers.jpg"
+  },
+  {
+    "name": "portocala si ciocolata",
+    "slug": "portocala-si-ciocolata",
+    "image": "/products/recreated/portocala-si-ciocolata.jpg"
+  },
+  {
+    "name": "banana si ciocolata",
+    "slug": "banana-si-ciocolata",
+    "image": "/products/recreated/banana-si-ciocolata.jpg"
+  },
+  {
+    "name": "fructe de padure + ciocolata alba sau cocos",
+    "slug": "fructe-de-padure-ciocolata-alba-sau-cocos",
+    "image": "/products/recreated/fructe-de-padure-ciocolata-alba-sau-cocos.jpg"
+  },
+  {
+    "name": "ciocolata si cocos",
+    "slug": "ciocolata-si-cocos",
+    "image": "/products/recreated/ciocolata-si-cocos.jpg"
+  },
+  {
+    "name": "cheesecake fructe de padure / portocala",
+    "slug": "cheesecake-fructe-de-padure-portocala",
+    "image": "/products/recreated/cheesecake-fructe-de-padure-portocala.jpg"
+  },
+  {
+    "name": "lamaie si vanilie",
+    "slug": "lamaie-si-vanilie",
+    "image": "/products/recreated/lamaie-si-vanilie.jpg"
+  },
+  {
+    "name": "fructe de padure si banana",
+    "slug": "fructe-de-padure-si-banana",
+    "image": "/products/recreated/fructe-de-padure-si-banana.jpg"
+  },
+  {
+    "name": "espresso cake",
+    "slug": "espresso-cake",
+    "image": "/products/recreated/espresso-cake.jpg"
+  },
+  {
+    "name": "lime si cocos",
+    "slug": "lime-si-cocos",
+    "image": "/products/recreated/lime-si-cocos.jpg"
+  },
+  {
+    "name": "ciocolata si caramel",
+    "slug": "ciocolata-si-caramel",
+    "image": "/products/recreated/ciocolata-si-caramel.jpg"
+  },
+  {
+    "name": "fructe de padure si ciocolata",
+    "slug": "fructe-de-padure-si-ciocolata",
+    "image": "/products/recreated/fructe-de-padure-si-ciocolata.jpg"
+  }
+]

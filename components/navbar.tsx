@@ -20,6 +20,7 @@ const navItems = [
   { href: "/", label: "Acasă" },
   { href: "/produse", label: "Produse" },
   { href: "/despre", label: "Despre" },
+  { href: "/blog", label: "Blog" },
   { href: "/comanda", label: "Cum comanzi" },
   { href: "/contact", label: "Contact" },
 ];
@@ -28,12 +29,18 @@ export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
 
+  const isAdminRoute = pathname.startsWith("/admin");
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  if (isAdminRoute) {
+    return null;
+  }
 
   return (
     <header

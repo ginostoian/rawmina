@@ -3,6 +3,8 @@
 import { Minus, Plus, ShoppingBag, Trash2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { useCart } from "@/components/cart/cart-provider";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -14,9 +16,15 @@ interface CartDrawerProps {
 
 export function CartDrawer({ compact }: CartDrawerProps) {
   const { items, itemCount, total, removeItem, updateQuantity } = useCart();
+  const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant={compact ? "soft" : "default"} size={compact ? "icon" : "default"} className="relative" aria-label="Deschide coșul">
           <ShoppingBag className="h-4 w-4" aria-hidden="true" />
@@ -44,7 +52,9 @@ export function CartDrawer({ compact }: CartDrawerProps) {
             <p className="mt-5 font-display text-2xl font-semibold text-brand-wine-deep">Coșul este gol.</p>
             <p className="mt-2 text-sm leading-6 text-[#6f5f63]">Alege din catalog produsele pe care vrei să le comanzi.</p>
             <Button asChild className="mt-6">
-              <Link href="/produse">Vezi produsele</Link>
+              <Link href="/produse" onClick={() => setOpen(false)}>
+                Vezi produsele
+              </Link>
             </Button>
           </div>
         ) : (
@@ -95,7 +105,9 @@ export function CartDrawer({ compact }: CartDrawerProps) {
               </div>
               <p className="mt-1 text-xs leading-5 text-[#6f5f63]">Confirmăm disponibilitatea și detaliile finale după trimiterea comenzii.</p>
               <Button asChild size="lg" className="mt-5 w-full">
-                <Link href="/comanda">Continuă comanda</Link>
+                <Link href="/comanda" onClick={() => setOpen(false)}>
+                  Continuă comanda
+                </Link>
               </Button>
             </div>
           </>
